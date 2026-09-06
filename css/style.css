@@ -111,13 +111,17 @@ ul { margin: 0; padding: 0; }
   width: 38px;
   height: 38px;
   cursor: pointer;
-  font-size: 1rem;
+  color: var(--text);
   display: flex;
   align-items: center;
   justify-content: center;
   transition: transform 0.2s ease, border-color 0.2s ease;
 }
 .theme-toggle:hover { transform: scale(1.06); border-color: var(--accent); }
+.theme-toggle svg { display: block; }
+.theme-toggle .icon-sun { display: none; }
+.theme-toggle.is-dark .icon-moon { display: none; }
+.theme-toggle.is-dark .icon-sun { display: block; }
 
 .menu-btn {
   display: none;
@@ -231,6 +235,12 @@ ul { margin: 0; padding: 0; }
   font-size: 0.9rem;
   margin-bottom: 20px;
 }
+.hero-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+.hero-meta svg { flex-shrink: 0; color: var(--accent); }
 .hero-social { display: flex; gap: 16px; }
 .hero-social a {
   width: 40px;
@@ -398,7 +408,17 @@ ul { margin: 0; padding: 0; }
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 .project-card:hover { transform: translateY(-6px); box-shadow: var(--shadow); }
-.project-icon { font-size: 2rem; margin-bottom: 14px; }
+.project-icon {
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: var(--bg-alt);
+  color: var(--accent);
+  margin-bottom: 16px;
+}
 .project-card h3 { font-size: 1.15rem; margin-bottom: 4px; }
 .project-sub { color: var(--accent-2); font-size: 0.82rem; font-weight: 600; margin-bottom: 14px; }
 .project-card p:not(.project-sub) { color: var(--text-dim); font-size: 0.94rem; margin-bottom: 18px; }
@@ -413,7 +433,17 @@ ul { margin: 0; padding: 0; }
   align-items: center;
   gap: 20px;
 }
-.edu-icon { font-size: 2.2rem; }
+.edu-icon {
+  width: 56px;
+  height: 56px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  background: var(--bg-alt);
+  color: var(--accent);
+}
 .edu-card h3 { margin-bottom: 4px; font-size: 1.1rem; }
 .edu-card p { color: var(--text-dim); }
 .edu-year {
@@ -459,7 +489,13 @@ ul { margin: 0; padding: 0; }
   font-size: 0.88rem;
   border-top: 1px solid var(--border);
 }
-.back-to-top { color: var(--accent); font-weight: 600; }
+.back-to-top {
+  color: var(--accent);
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
 
 /* RESPONSIVE */
 @media (max-width: 860px) {

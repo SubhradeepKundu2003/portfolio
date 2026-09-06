@@ -5,15 +5,13 @@ document.getElementById('year').textContent = new Date().getFullYear();
 (function () {
   const root = document.documentElement;
   const toggle = document.getElementById('themeToggle');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
   const stored = safeGet('theme');
 
-  if (stored) {
-    root.setAttribute('data-theme', stored);
-    updateIcon(stored);
-  }
+  if (stored) root.setAttribute('data-theme', stored);
+  updateIcon(stored || (prefersDark ? 'dark' : 'light'));
 
   toggle.addEventListener('click', () => {
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     const current = root.getAttribute('data-theme') || (prefersDark ? 'dark' : 'light');
     const next = current === 'dark' ? 'light' : 'dark';
     root.setAttribute('data-theme', next);
@@ -22,7 +20,7 @@ document.getElementById('year').textContent = new Date().getFullYear();
   });
 
   function updateIcon(theme) {
-    toggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+    toggle.classList.toggle('is-dark', theme === 'dark');
   }
 
   function safeGet(key) {
