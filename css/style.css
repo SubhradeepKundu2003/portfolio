@@ -454,6 +454,7 @@ ul { margin: 0; padding: 0; }
 .project-card p:not(.project-sub) { color: var(--text-dim); font-size: 0.94rem; margin-bottom: 18px; }
 
 /* EDUCATION */
+.edu-list { display: grid; gap: 20px; }
 .edu-card {
   background: var(--surface);
   border: 1px solid var(--border);
